@@ -1,10 +1,12 @@
+/*
+ * First page
+ */
+
 div.form_submit {
     border: 5px solid white;
     padding: 50px;
 
-    background-image: url("Line7.png");
-    background-color: transparent;
-    filter: alpha(opacity=40);
+    background: transparent url("Line7.png");
     font-family:Georgia;
     margin: 50px auto 0 auto;
     text-align:center;
@@ -62,4 +64,36 @@ input.submit:hover {
 
 .description {
     margin-top: 50px;
+}
+
+/*
+ * Second page
+ */
+
+table {
+    padding: 25px;
+}
+
+table.imagetable {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #999999;
+    border-collapse: collapse;
+}
+table.imagetable th {
+    background:#333;
+    border-width: 1px;
+    color: #fff;
+    padding: 8px;
+    border-style: solid;
+    border-color: #999999;
+}
+table.imagetable td {
+    background:#fff;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #999999;
 }
