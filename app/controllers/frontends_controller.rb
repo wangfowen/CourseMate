@@ -9,7 +9,6 @@ class FrontendsController < ApplicationController
   # GET /frontends.json
   def index
     @graph = Koala::Facebook::API.new(session[:access_token])
-    
     #@display = @graph.get_object("me")["education"]
     #find user's university, if it exists in list, univ_id = it
     #else create in univ model and then save univ_id = it
@@ -21,10 +20,8 @@ class FrontendsController < ApplicationController
       @body = 'upload'
       #@display = @graph.get_connections("me", "albums")
     else
-      #do a join on your courses and your friends' courses
-      #@variable = list of friends with same courses
+      @friends = @user.match_friends_course_lists @graph.get_connections('me', 'friends').map { |a| a["id"]}
       @body = 'results'
-      #render partial for show who's in your classes
     end
 
     respond_to do |format|
@@ -35,7 +32,7 @@ class FrontendsController < ApplicationController
 
   def find_friends courses_array
     temp = Courses.parse_course_infos(courses_array, @user.univ_id)
-    #@user.update_course_list!(temp)
+    @user.update_course_list!(temp)
     redirect_to "http://apps.facebook.com/coursemateapp/"
   end
 

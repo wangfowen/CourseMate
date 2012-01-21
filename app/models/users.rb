@@ -15,4 +15,19 @@ class Users < ActiveRecord::Base
 		self.univ_id = univ_id
 		self.save!
 	end
+
+	def match_friends_course_lists friends_list
+		course_match_list = []
+
+		for id in friends_list
+			if (friend = Users.find_by_fb_id(id)).nil?
+				break
+			else
+				match = friend.course_list.split(' ') & self.course_list.split(' ')
+				course_match_list << { friend.id => match.select { |s| s=~ /^[0-9]*$/ } }
+			end
+		end
+
+		return course_match_list
+	end
 end
