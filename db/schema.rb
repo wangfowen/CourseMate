@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120121002615) do
+ActiveRecord::Schema.define(:version => 20120121030920) do
+
+  create_table "courses", :force => true do |t|
+    t.string   "course"
+    t.time     "time"
+    t.string   "prof"
+    t.string   "building"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "universities", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.integer  "fb_id",      :limit => 8, :null => false
