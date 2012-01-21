@@ -1,0 +1,9 @@
+development:
+  app_id: 214483138643502
+  secret_key: c31390911c4f92a58257b14ba3d9127e
+test:
+  app_id: 214483138643502
+  secret_key: c31390911c4f92a58257b14ba3d9127e
+production:
+  app_id: 214483138643502
+  secret_key: c31390911c4f92a58257b14ba3d9127e
