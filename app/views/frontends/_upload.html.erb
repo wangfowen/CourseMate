@@ -1,7 +1,7 @@
 <div class="form_submit">
-<h1>Waterloo Course Finder</h1>
+<h1>Course Mate</h1>
 <%= form_for(:upload, :url => {:controller => :frontends, :action => :upload_file}) do |f| %>
-<%= f.label :upload_file, 'Input the URL of a screenshot of your schedule.' %>
+    <%= f.label :upload_file, 'Input the URL of a screenshot of your schedule.', :class => "description" %>
 <br><br><br><br>
 <div class="input_field">
 <%= f.text_field :upload_file %>
