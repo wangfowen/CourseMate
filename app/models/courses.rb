@@ -2,7 +2,10 @@ class Courses < ActiveRecord::Base
 	belongs_to :university
 	belongs_to :users
 
-	def parse_course_infos courses_hash
+	def self.parse_course_infos courses_array
+		for course in courses_array do
+			
+		end
 		#compare course info in hash with courses (in university)
 	    #if exist, grab course id
 	    #if not, create course, grab course id
