@@ -6,7 +6,7 @@ div.form_submit {
     border: 5px solid white;
     padding: 50px;
 
-    background: transparent url("Line7.png");
+    background: transparent url("grey.jpg");
     font-family:Georgia;
     margin: 50px auto 0 auto;
     text-align:center;
@@ -36,12 +36,13 @@ input#upload_upload_file {
     width: 300px;
     line-height:50px;
     text-align:center;
+    text-font:25px;
 }
 
 h1 {
     line-height:50px;
     margin:40px;
-    font-size:88px;
+    font-size:80px;
 }
 
 input.submit {
