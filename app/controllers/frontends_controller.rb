@@ -42,12 +42,7 @@ class FrontendsController < ApplicationController
 
   def upload_file
     upload = params[:upload][:upload_file]
-    name =  upload.original_filename
-    directory = "public/data"
-    # create the file path
-    path = File.join(directory, name)
-    # write the file
-    File.open(path, "wb") { |f| f.write(upload.read) }
+
   end
 
 end

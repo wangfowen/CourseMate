@@ -50,7 +50,11 @@ Coursemate::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'frontends#index'
 
-  resources :frontends
+  resources :frontends do
+    collection do 
+      post 'upload_file'
+    end
+  end
 
   # See how all your routes lay out with "rake routes"
 
