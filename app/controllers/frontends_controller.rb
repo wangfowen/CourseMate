@@ -38,7 +38,7 @@ class FrontendsController < ApplicationController
 
   def upload_file
     img_url = params[:upload][:upload_file]
-    url = URI.parse("http://coursemateservice.apphb.com/service1/#{img_url}")
+    url = URI.parse("http://localhost:28866/service1/#{img_url}")
     req = Net::HTTP::Get.new(url.path)
     res = Net::HTTP.start(url.host, url.port) {|http|
       http.request(req)

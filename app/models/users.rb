@@ -24,7 +24,9 @@ class Users < ActiveRecord::Base
 				break
 			else
 				match = friend.course_list.split(' ') & self.course_list.split(' ')
-				course_match_list << { friend.id => match.select { |s| s=~ /^[0-9]*$/ } }
+				course_match_list << { friend.id => 
+					match.select { |s| s =~ /^[0-9]*$/ }.map { |m| Courses.where('univ_id = ?', self.univ_id).find(m).course } 
+				}
 			end
 		end
 
