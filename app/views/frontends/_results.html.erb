@@ -10,6 +10,5 @@
         <td><%= Courses.where('univ_id = ?', self.univ_id).find(m).course %></td>
         <td><%= @graph.get_object('1')["name"] %></td>
         </tr>
-        <% end %>
     </table>
 </div>
