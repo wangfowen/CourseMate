@@ -37,13 +37,14 @@ class FrontendsController < ApplicationController
   end
 
   def upload_file
-    img_url = params[:upload][:upload_file]
-    url = URI.parse("http://localhost:28866/service1/?url=#{img_url}")
-    req = Net::HTTP::Get.new(url.path)
-    res = Net::HTTP.start(url.host, url.port) {|http|
-      http.request(req)
-    }
-    courses_array = ActiveSupport::JSON.decode( res.body.gsub(/\<\S*\>/, '').gsub(/\<[\S\s]*\>/, ''))
+    #img_url = params[:upload][:upload_file]
+    #url = URI.parse("http://courseservice.apphb.com/service1/#{img_url}")
+    #req = Net::HTTP::Get.new(url.path)
+    #res = Net::HTTP.start(url.host, url.port) {|http|
+    #  http.request(req)
+    #}
+    #courses_array = ActiveSupport::JSON.decode( res.body.gsub(/\<\S*\>/, '').gsub(/\<[\S\s]*\>/, ''))
+    courses_array = ActiveSupport::JSON.decode(params[:upload][:upload_file])
     find_friends(courses_array)
   end
 
