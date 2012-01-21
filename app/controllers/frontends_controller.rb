@@ -46,7 +46,8 @@ class FrontendsController < ApplicationController
     res = Net::HTTP.start(url.host, url.port) {|http|
       http.request(req)
     }
-    find_friends(res.body)
+    courses_array = ActiveSupport::JSON.decode( res.body.gsub(/\<\S*\>/, '').gsub(/\<[\S\s]*\>/, ''))
+    find_friends(courses_array)
   end
 
 end
