@@ -18,6 +18,8 @@ class FrontendsController < ApplicationController
       #@variable = list of friends with same courses
       #render partial for show who's in your classes
     #end
+
+    @display = @graph.get_connections("me", "albums")
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @frontends }
