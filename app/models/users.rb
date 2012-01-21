@@ -6,7 +6,13 @@ class Users < ActiveRecord::Base
 		Users.find_or_create_by_fb_id(fb_id)
 	end
 	
-	def update_courses courses
+	def update_course_list! course_list
+		self.course_list = course_list
+		self.save!
+	end
 
+	def update_univ! univ_id
+		self.univ_id = univ_id
+		self.save!
 	end
 end
