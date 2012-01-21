@@ -2,13 +2,13 @@
 <h2>You have these courses with these friends!</h2>
     <table class="imagetable">
         <tr>
-        <th>Friend Name</th>
-        <th>Courses Together</th>
+        <th>Your Courses</th>
+        <th>Friends With Same Courses</th>
         </tr>
-        <% for friend in @friends %>
+        <% for course in @user.array_course_list %>
         <tr>
-        <td><%= @graph.get_object(friend.keys.first)["name"] %></td>
-        <td>ece 250, ece 222, math 211, math 215, ece 240, ece 290, ece 200</td>
+        <td><%= Courses.where('univ_id = ?', self.univ_id).find(m).course %></td>
+        <td><%= @graph.get_object('1')["name"] %></td>
         </tr>
         <% end %>
     </table>

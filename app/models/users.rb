@@ -16,6 +16,10 @@ class Users < ActiveRecord::Base
 		self.save!
 	end
 
+	def array_course_list
+		self.course_list.split(' ').select { |s| s =~ /^[0-9]*$/ }
+	end
+
 	def match_friends_course_lists friends_list
 		course_match_list = []
 
@@ -23,9 +27,9 @@ class Users < ActiveRecord::Base
 			if (friend = Users.find_by_fb_id(id)).nil?
 				break
 			else
-				match = friend.course_list.split(' ') & self.course_list.split(' ')
+				match = friend.array_course_list & self.array_course_list
 				course_match_list << { friend.id => 
-					match.select { |s| s =~ /^[0-9]*$/ }.map { |m| Courses.where('univ_id = ?', self.univ_id).find(m).course } 
+					match.map { |m| Courses.where('univ_id = ?', self.univ_id).find(m).course } 
 				}
 			end
 		end
