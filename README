@@ -1,3 +1,4 @@
 CourseMate:
-Everyone and their brother uploads their schedules onto Facebook. Why not find out which of your friends are in your classes in the process? CourseMate does this for you! Done in under 24 hours for the Waterloo Facebook Hackathon by Owen, Roxanne, Jack, and Michael. 
+Everyone and their brother uploads their schedules onto Facebook. Why not find out which of your friends are in your classes in the process? CourseMate does this for you! Done (or rather not done) in under 24 hours for the Waterloo Facebook Hackathon by Owen, Roxanne, Jack, and Michael. 
 Some problems getting the OCR REST service up on a server and the friend matching in the database. Most likely will not be fixed, but others feel free to expand on this. Could potentially also be used to grab pictures of schedules and turn them into calendar imports or something else useful.
+The OCR portion of it: https://github.com/JJackJi/CourseMateService
