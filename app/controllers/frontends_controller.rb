@@ -10,15 +10,16 @@ class FrontendsController < ApplicationController
   def index
     @graph = Koala::Facebook::API.new(session[:access_token])
     #@display = @graph.get_object("me")["education"]
-    #find user's university, if it exists in list, univ_id = it
-    #else create in univ model and then save univ_id = it
+
     if @user.univ_id.nil?
       @user.update_univ!('1')
     end
 
+    #if there's no course list, OCR the schedule
     if @user.course_list.nil?
       @body = 'upload'
       #@display = @graph.get_connections("me", "albums")
+    #if the user has a course list, match with their friends
     else
       @friends = @user.match_friends_course_lists @graph.get_connections('me', 'friends').map { |a| a["id"]}
       @body = 'results'
@@ -30,12 +31,14 @@ class FrontendsController < ApplicationController
     end
   end
 
+  #find friends based on course matches
   def find_friends courses_array
     temp = Courses.parse_course_infos(courses_array, @user.univ_id)
     @user.update_course_list!(temp)
     redirect_to "http://apps.facebook.com/coursemateapp/"
   end
 
+  #connect to the OCR app
   def upload_file
     img_url = params[:upload][:upload_file]
     url = URI.parse("http://courseservice.apphb.com/service1/#{img_url}")
